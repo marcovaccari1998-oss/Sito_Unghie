@@ -1,0 +1,82 @@
+
+
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>GG Beauty.lab</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <h1>GG Beauty.lab</h1>
+    <p class="address">Via della Vittoria, 89 – Fiorano Modenese</p>
+  </header>
+
+  <!-- FILTRI -->
+  <section class="filters">
+    <button class="filter-btn active" data-filter="all">Tutti</button>
+    <button class="filter-btn" data-filter="unghie">Unghie</button>
+    <button class="filter-btn" data-filter="viso">Viso</button>
+    <button class="filter-btn" data-filter="ciglia">Ciglia & Sopracciglia</button>
+  </section>
+
+  <!-- LISTA TRATTAMENTI -->
+  <section class="treatments">
+
+    <!-- CATEGORIA -->
+    <div class="category" data-category="unghie">
+      <button class="category-header">
+        Manicure
+        <span>da €25</span>
+      </button>
+
+      <div class="category-content">
+
+        <div class="treatment">
+          <h4>Manicure classica – €25</h4>
+          <p class="description">
+            Pulizia delle unghie, trattamento delle cuticole e applicazione smalto.
+          </p>
+
+          <ul class="variants">
+            <li>Con smalto normale</li>
+            <li>Con smalto rinforzante</li>
+          </ul>
+        </div>
+
+        <div class="treatment">
+          <h4>Manicure semipermanente – €35</h4>
+          <p class="description">
+            Manicure completa con applicazione di smalto semipermanente.
+          </p>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ALTRA CATEGORIA -->
+    <div class="category" data-category="viso">
+      <button class="category-header">
+        Trattamenti Viso
+        <span>da €50</span>
+      </button>
+
+      <div class="category-content">
+        <div class="treatment">
+          <h4>Trattamento illuminante – €50</h4>
+          <p class="description">
+            Trattamento specifico per ridare luminosità alla pelle.
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>

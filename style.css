@@ -1,0 +1,96 @@
+
+* {
+  box-sizing: border-box;
+  font-family: system-ui, sans-serif;
+}
+
+body {
+  margin: 0;
+  background: #f9f9f9;
+  color: #1a1a1a;
+}
+
+.header {
+  text-align: center;
+  padding: 24px 16px;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 28px;
+}
+
+.address {
+  color: #777;
+  font-size: 14px;
+}
+
+.filters {
+  display: flex;
+  gap: 10px;
+  padding: 16px;
+  overflow-x: auto;
+}
+
+.filter-btn {
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  background: white;
+  cursor: pointer;
+}
+
+.filter-btn.active {
+  border-color: #111;
+  font-weight: 600;
+}
+
+.treatments {
+  padding: 0 16px 40px;
+}
+
+.category {
+  margin-bottom: 12px;
+  border-radius: 10px;
+  background: white;
+  overflow: hidden;
+}
+
+.category-header {
+  width: 100%;
+  padding: 16px;
+  background: white;
+  border: none;
+  display: flex;
+  justify-content: space-between;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.category-content {
+  display: none;
+  padding: 16px;
+  border-top: 1px solid #eee;
+}
+
+.category.open .category-content {
+  display: block;
+}
+
+.treatment {
+  margin-bottom: 16px;
+}
+
+.treatment h4 {
+  margin: 0 0 6px;
+}
+
+.description {
+  font-size: 14px;
+  color: #555;
+}
+
+.variants {
+  padding-left: 18px;
+  font-size: 14px;
+}
