@@ -13,17 +13,20 @@ function buildFilters(categories) {
     const btn = document.createElement("button");
     btn.className = "filter-btn";
 
+    // icona filtro
     if (cat.icon) {
       const img = document.createElement("img");
       img.src = cat.icon; // es: "icons/unghia.svg" o "icons/viso.svg"
-      img.alt = cat.name;
+      img.alt = cat.label || cat.id;
       btn.appendChild(img);
     }
 
+    // testo filtro
     const span = document.createElement("span");
-    span.textContent = cat.label || cat.name;
+    span.textContent = cat.label || cat.id;
     btn.appendChild(span);
 
+    // primo filtro attivo
     if (index === 0) btn.classList.add("active");
 
     btn.onclick = () => {
@@ -46,15 +49,31 @@ function buildTreatments(categories) {
       sectionEl.className = "category";
       sectionEl.dataset.category = cat.id;
 
-      // Header della sezione con "Da ...€" a destra del nome
+      // HEADER della sezione
       const header = document.createElement("button");
       header.className = "category-header";
-      header.innerHTML = `
-        <span>${section.title}${section.fromPrice ? ` <span class="section-price">(${section.fromPrice}€)</span>` : ""}</span>
-        <span>+</span>
-      `;
+
+      // span titolo
+      const titleSpan = document.createElement("span");
+      titleSpan.textContent = section.title;
+
+      // span prezzo "Da ...€" tra parentesi, opaco
+      const priceSpan = document.createElement("span");
+      priceSpan.className = "section-price";
+      if (section.fromPrice) priceSpan.textContent = `(${section.fromPrice}€)`;
+
+      // span "+" per accordion
+      const plusSpan = document.createElement("span");
+      plusSpan.textContent = "+";
+
+      // append
+      header.appendChild(titleSpan);
+      header.appendChild(priceSpan);
+      header.appendChild(plusSpan);
+
       header.onclick = () => sectionEl.classList.toggle("open");
 
+      // contenuto trattamenti
       const content = document.createElement("div");
       content.className = "category-content";
 
