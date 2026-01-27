@@ -15,7 +15,7 @@ function buildFilters(categories) {
 
     if (cat.icon) {
       const img = document.createElement("img");
-      img.src = cat.icon; // es: "icons/unghie.svg"
+      img.src = cat.icon; // es: "icons/unghia.svg" o "icons/viso.svg"
       img.alt = cat.name;
       btn.appendChild(img);
     }
@@ -46,11 +46,11 @@ function buildTreatments(categories) {
       sectionEl.className = "category";
       sectionEl.dataset.category = cat.id;
 
+      // Header della sezione con "Da ...€" a destra del nome
       const header = document.createElement("button");
       header.className = "category-header";
       header.innerHTML = `
-        <span>${section.title}</span>
-        ${section.fromPrice ? `<span class="section-price">Da ${section.fromPrice}€</span>` : ""}
+        <span>${section.title}${section.fromPrice ? ` <span class="section-price">(${section.fromPrice}€)</span>` : ""}</span>
         <span>+</span>
       `;
       header.onclick = () => sectionEl.classList.toggle("open");

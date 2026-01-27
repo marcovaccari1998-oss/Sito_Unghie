@@ -4,7 +4,7 @@
     {
       "id": "unghie",
       "label": "Manicure e Pedicure",
-      "icon": "icons/unghie.svg",
+      "icon": "icons/unghia.svg",
       "sections": [
         {
           "title": "Manicure",
@@ -29,7 +29,7 @@
     {
       "id": "estetica",
       "label": "Estetica",
-      "icon": "icons/estetica.svg",
+      "icon": "icons/viso.svg",
       "sections": [
         {
           "title": "Epilazione",

@@ -4,8 +4,9 @@
   --title-color: #ffffff;
   --title-size: 28px;
   --title-font: 'Playfair Display SC', serif;
-  --category-font-size: 20px; /* dimensione titolo categorie */
-  --filter-icon-size: 40px;   /* dimensione icone filtri */
+  --category-font-size: 20px;
+  --filter-icon-size: 40px;
+  --price-opacity: 0.7;
 }
 
 /* ========== GENERALE ========== */
@@ -136,7 +137,7 @@ body {
 
 .section-price {
   font-size: 14px;
-  color: #dbe2ff;
-  margin-left: 12px;
+  color: rgba(255, 255, 255, var(--price-opacity));
+  margin-left: 8px;
   white-space: nowrap;
 }
