@@ -13,6 +13,12 @@ function buildFilters(categories) {
     const btn = document.createElement("button");
     btn.className = "filter-btn";
 
+    // forza layout verticale
+    btn.style.display = "flex";
+    btn.style.flexDirection = "column";
+    btn.style.alignItems = "center";
+    btn.style.gap = "6px";
+
     // testo filtro sopra
     const span = document.createElement("span");
     span.textContent = cat.label || cat.id;
@@ -23,6 +29,9 @@ function buildFilters(categories) {
       const img = document.createElement("img");
       img.src = cat.icon;
       img.alt = cat.label || cat.id;
+      img.style.margin = "0"; // niente margin-right
+      img.style.width = "70px";
+      img.style.height = "70px";
       btn.appendChild(img);
     }
 
@@ -59,7 +68,7 @@ function buildTreatments(categories) {
       // prezzo "da ...€" tra parentesi, opaco
       const priceSpan = document.createElement("span");
       priceSpan.className = "section-price";
-      if (section.fromPrice) priceSpan.textContent = `(da ${section.fromPrice}€)`;
+      if (section.fromPrice) priceSpan.textContent = `(da ${section.fromPrice}€)`; // parola "da" inclusa
 
       // wrapper titolo + prezzo
       const leftWrapper = document.createElement("div");
