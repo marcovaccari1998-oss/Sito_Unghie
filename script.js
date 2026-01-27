@@ -62,13 +62,20 @@ function buildTreatments(categories) {
       priceSpan.className = "section-price";
       if (section.fromPrice) priceSpan.textContent = `(${section.fromPrice}€)`;
 
+      // wrapper per titolo + prezzo
+      const leftWrapper = document.createElement("div");
+      leftWrapper.style.display = "flex";
+      leftWrapper.style.alignItems = "center";
+      leftWrapper.style.gap = "6px"; // distanza tra titolo e prezzo
+      leftWrapper.appendChild(titleSpan);
+      leftWrapper.appendChild(priceSpan);
+
       // span "+" per accordion
       const plusSpan = document.createElement("span");
       plusSpan.textContent = "+";
 
-      // append
-      header.appendChild(titleSpan);
-      header.appendChild(priceSpan);
+      // append: wrapper a sinistra, + a destra
+      header.appendChild(leftWrapper);
       header.appendChild(plusSpan);
 
       header.onclick = () => sectionEl.classList.toggle("open");
