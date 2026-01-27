@@ -13,7 +13,6 @@ function buildFilters(categories) {
     const btn = document.createElement("button");
     btn.className = "filter-btn";
 
-    // Aggiunge l'icona se presente
     if (cat.icon) {
       const img = document.createElement("img");
       img.src = cat.icon; // es: "icons/unghie.svg"
@@ -47,18 +46,13 @@ function buildTreatments(categories) {
       sectionEl.className = "category";
       sectionEl.dataset.category = cat.id;
 
-      // Prezzo da tot€ (se presente nel JSON)
-      if (cat.fromPrice) {
-        const priceDiv = document.createElement("div");
-        priceDiv.className = "category-price";
-        priceDiv.textContent = `Da ${cat.fromPrice}€`;
-        sectionEl.appendChild(priceDiv);
-      }
-
-      // Header della sezione
       const header = document.createElement("button");
       header.className = "category-header";
-      header.innerHTML = `<span>${section.title}</span><span>+</span>`;
+      header.innerHTML = `
+        <span>${section.title}</span>
+        ${section.fromPrice ? `<span class="section-price">Da ${section.fromPrice}€</span>` : ""}
+        <span>+</span>
+      `;
       header.onclick = () => sectionEl.classList.toggle("open");
 
       const content = document.createElement("div");
