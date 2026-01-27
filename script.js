@@ -13,20 +13,19 @@ function buildFilters(categories) {
     const btn = document.createElement("button");
     btn.className = "filter-btn";
 
-    // icona filtro
-    if (cat.icon) {
-      const img = document.createElement("img");
-      img.src = cat.icon; // es: "icons/unghia.svg" o "icons/viso.svg"
-      img.alt = cat.label || cat.id;
-      btn.appendChild(img);
-    }
-
-    // testo filtro
+    // testo filtro sopra
     const span = document.createElement("span");
     span.textContent = cat.label || cat.id;
     btn.appendChild(span);
 
-    // primo filtro attivo
+    // icona filtro sotto
+    if (cat.icon) {
+      const img = document.createElement("img");
+      img.src = cat.icon;
+      img.alt = cat.label || cat.id;
+      btn.appendChild(img);
+    }
+
     if (index === 0) btn.classList.add("active");
 
     btn.onclick = () => {
@@ -53,28 +52,27 @@ function buildTreatments(categories) {
       const header = document.createElement("button");
       header.className = "category-header";
 
-      // span titolo
+      // titolo
       const titleSpan = document.createElement("span");
       titleSpan.textContent = section.title;
 
-      // span prezzo "Da ...€" tra parentesi, opaco
+      // prezzo "da ...€" tra parentesi, opaco
       const priceSpan = document.createElement("span");
       priceSpan.className = "section-price";
-      if (section.fromPrice) priceSpan.textContent = `(${section.fromPrice}€)`;
+      if (section.fromPrice) priceSpan.textContent = `(da ${section.fromPrice}€)`;
 
-      // wrapper per titolo + prezzo
+      // wrapper titolo + prezzo
       const leftWrapper = document.createElement("div");
       leftWrapper.style.display = "flex";
       leftWrapper.style.alignItems = "center";
-      leftWrapper.style.gap = "6px"; // distanza tra titolo e prezzo
+      leftWrapper.style.gap = "6px";
       leftWrapper.appendChild(titleSpan);
       leftWrapper.appendChild(priceSpan);
 
-      // span "+" per accordion
+      // "+"
       const plusSpan = document.createElement("span");
       plusSpan.textContent = "+";
 
-      // append: wrapper a sinistra, + a destra
       header.appendChild(leftWrapper);
       header.appendChild(plusSpan);
 
