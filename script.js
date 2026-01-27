@@ -1,101 +1,73 @@
-fetch('treatments.json')
-  .then(response => response.json())
+fetch("data.json")
+  .then(res => res.json())
   .then(data => {
     buildFilters(data.categories);
     buildTreatments(data.categories);
   });
 
-/* ===== FILTRI ===== */
 function buildFilters(categories) {
-  const filters = document.getElementById('filters');
+  const filters = document.getElementById("filters");
 
-  filters.innerHTML = `
-    <button class="filter-btn active" data-filter="all">Tutti</button>
-  `;
+  categories.forEach((cat, index) => {
+    const btn = document.createElement("button");
+    btn.className = "filter-btn";
+    btn.textContent = cat.name;
 
-  categories.forEach(cat => {
-    const btn = document.createElement('button');
-    btn.className = 'filter-btn';
-    btn.dataset.filter = cat.id;
-    btn.textContent = cat.label;
+    if (index === 0) btn.classList.add("active");
+
+    btn.onclick = () => {
+      document
+        .querySelectorAll(".filter-btn")
+        .forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+      filterCategories(cat.id);
+    };
+
     filters.appendChild(btn);
-  });
-
-  filters.addEventListener('click', e => {
-    if (!e.target.classList.contains('filter-btn')) return;
-
-    document.querySelectorAll('.filter-btn')
-      .forEach(b => b.classList.remove('active'));
-
-    e.target.classList.add('active');
-
-    const filter = e.target.dataset.filter;
-
-    document.querySelectorAll('.category').forEach(cat => {
-      cat.style.display =
-        filter === 'all' || cat.dataset.category === filter
-          ? 'block'
-          : 'none';
-    });
   });
 }
 
-/* ===== TRATTAMENTI ===== */
 function buildTreatments(categories) {
-  const container = document.getElementById('treatments');
-  container.innerHTML = '';
+  const container = document.getElementById("treatments");
 
-  categories.forEach(category => {
-    category.sections.forEach(section => {
+  categories.forEach(cat => {
+    const section = document.createElement("section");
+    section.className = "category";
+    section.dataset.category = cat.id;
 
-      const catEl = document.createElement('div');
-      catEl.className = 'category';
-      catEl.dataset.category = category.id;
+    const header = document.createElement("button");
+    header.className = "category-header";
+    header.innerHTML = `<span>${cat.name}</span><span>+</span>`;
+    header.onclick = () => section.classList.toggle("open");
 
-      catEl.innerHTML = `
-        <button class="category-header">
-          ${section.title}
-          <span>da €${section.fromPrice}</span>
-        </button>
-        <div class="category-content"></div>
+    const content = document.createElement("div");
+    content.className = "category-content";
+
+    cat.treatments.forEach(t => {
+      const div = document.createElement("div");
+      div.className = "treatment";
+
+      div.innerHTML = `
+        <div class="treatment-header">
+          <strong>${t.name}</strong>
+          <span>${t.price}</span>
+        </div>
+        ${t.duration ? `<div class="duration">${t.duration}</div>` : ""}
+        ${t.description ? `<div class="description">${t.description}</div>` : ""}
       `;
 
-      const content = catEl.querySelector('.category-content');
-
-      section.treatments.forEach(treatment => {
-        const treatmentEl = document.createElement('div');
-        treatmentEl.className = 'treatment';
-
-        treatmentEl.innerHTML = `
-          <div class="treatment-header">
-            <h4>${treatment.name} – €${treatment.price}</h4>
-            <span class="duration">${treatment.duration}</span>
-          </div>
-          ${treatment.description ? `<p class="description">${treatment.description}</p>` : ''}
-        `;
-
-        if (treatment.variants) {
-          const ul = document.createElement('ul');
-          ul.className = 'variants';
-
-          treatment.variants.forEach(v => {
-            const li = document.createElement('li');
-            li.textContent = v.label;
-            ul.appendChild(li);
-          });
-
-          treatmentEl.appendChild(ul);
-        }
-
-        content.appendChild(treatmentEl);
-      });
-
-      catEl.querySelector('.category-header')
-        .addEventListener('click', () => {
-          catEl.classList.toggle('open');
-        });
-
-      container.appendChild(catEl);
+      content.appendChild(div);
     });
+
+    section.appendChild(header);
+    section.appendChild(content);
+    container.appendChild(section);
+  });
+}
+
+function filterCategories(categoryId) {
+  document.querySelectorAll(".category").forEach(cat => {
+    cat.style.display =
+      cat.dataset.category === categoryId ? "block" : "none";
   });
 }

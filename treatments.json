@@ -1,62 +1,79 @@
 {
+  "note": "File dati dei trattamenti. Modifica solo i valori, NON la struttura.",
   "categories": [
     {
       "id": "unghie",
-      "label": "Unghie",
+      "label": "Manicure e Pedicure",
+      "icon": "icons/unghie.png",
+      "note": "Usato per il filtro e per l'icona del pulsante",
       "sections": [
         {
           "title": "Manicure",
-          "fromPrice": 25,
+          "fromPrice": 20,
           "treatments": [
             {
-              "name": "Manicure classica",
-              "price": 25,
-              "duration": "30 min",
-              "description": "Pulizia delle unghie, trattamento delle cuticole e smalto.",
-              "variants": [
-                {
-                  "label": "Smalto normale"
-                },
-                {
-                  "label": "Smalto rinforzante"
-                }
-              ]
+              "name": "Kombi Manicure",
+              "price": 20,
+              "duration": "30 min"
             },
             {
-              "name": "Semipermanente",
-              "price": 35,
-              "duration": "45 min",
-              "variants": [
-                {
-                  "label": "Colore unico"
-                },
-                {
-                  "label": "French"
-                }
-              ]
+              "name": "Manicure ad olio",
+              "price": 25,
+              "duration": "30 min"
             }
           ]
         },
-
         {
-          "title": "Ricostruzione Unghie",
-          "fromPrice": 60,
+          "title": "Semipermanente",
+          "fromPrice": 34,
+          "note": "Aggiungi qui nuove varianti di semipermanente",
           "treatments": [
             {
-              "name": "Ricostruzione gel",
-              "price": 60,
-              "duration": "90 min",
-              "description": "Ricostruzione completa con gel.",
+              "name": "Semipermanente",
+              "price": 34,
+              "duration": "45 min"
+            },
+            {
+              "name": "Semipermanente rinforzato",
+              "price": 38,
+              "duration": "50 min"
+            },
+            {
+              "name": "Semipermanente piedi",
+              "price": 40,
+              "duration": "45 min"
+            },
+            {
+              "name": "Rimozione",
+              "price": 8,
+              "duration": "15 min"
+            }
+          ]
+        },
+        {
+          "title": "Ricostruzione Unghie",
+          "fromPrice": 65,
+          "note": "Le varianti rappresentano la lunghezza",
+          "treatments": [
+            {
+              "name": "Ricostruzione",
+              "price": 65,
+              "duration": "120 min",
+              "description": "Ricostruzione su unghie prive di prodotto precedente.",
               "variants": [
-                {
-                  "label": "Unghie corte"
-                },
-                {
-                  "label": "Unghie medie"
-                },
-                {
-                  "label": "Unghie lunghe"
-                }
+                { "label": "Corto (<1.5 cm)" },
+                { "label": "Medio (1.5–2 cm)" },
+                { "label": "Lungo (>2 cm)" }
+              ]
+            },
+            {
+              "name": "Refill",
+              "price": 50,
+              "duration": "90 min",
+              "variants": [
+                { "label": "Corto" },
+                { "label": "Medio (+5€)" },
+                { "label": "Lungo (+10€)" }
               ]
             }
           ]
@@ -65,19 +82,20 @@
     },
 
     {
-      "id": "viso",
-      "label": "Viso",
+      "id": "estetica",
+      "label": "Estetica",
+      "icon": "icons/estetica.png",
       "sections": [
         {
-          "title": "Trattamenti Viso",
-          "fromPrice": 50,
+          "title": "Epilazione",
+          "fromPrice": 5,
           "treatments": [
-            {
-              "name": "Trattamento illuminante",
-              "price": 50,
-              "duration": "60 min",
-              "description": "Trattamento per ridare luminosità alla pelle."
-            }
+            { "name": "Sopracciglia", "price": 5, "duration": "10 min" },
+            { "name": "Baffetti", "price": 5, "duration": "10 min" },
+            { "name": "Viso", "price": 10, "duration": "15 min" },
+            { "name": "Inguine totale", "price": 30, "duration": "30 min" },
+            { "name": "Inguine bikini", "price": 25, "duration": "25 min" },
+            { "name": "Ascelle", "price": 15, "duration": "15 min" }
           ]
         }
       ]

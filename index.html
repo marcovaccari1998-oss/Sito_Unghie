@@ -1,28 +1,33 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>Unghiamo | Elisa Pignatti</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- GOOGLE FONT SOLO PER IL TITOLO -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display+SC&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- HEADER -->
   <header class="header">
     <img src="logo.png" alt="Logo Unghiamo" class="logo">
 
     <h1 class="site-title">Unghiamo | Elisa Pignatti</h1>
 
-    <p class="address">
+    <div class="address">
       Via Giacomo Leopardi, 39 – 41019 Soliera (MO)
-    </p>
+    </div>
   </header>
 
-  <!-- QUESTI DUE DEVONO ESSERE VUOTI -->
-  <section class="filters" id="filters"></section>
+  <!-- FILTRI (generati da JS) -->
+  <div class="filters" id="filters"></div>
 
-  <section class="treatments" id="treatments"></section>
+  <!-- TRATTAMENTI (generati da JS) -->
+  <main class="treatments" id="treatments"></main>
 
   <script src="script.js"></script>
 </body>
