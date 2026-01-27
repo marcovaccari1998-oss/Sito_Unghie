@@ -1,19 +1,15 @@
-/* ========== VARIABILI DI STILE ========== */
 :root {
   --bg-color: #1f3c88;
   --title-color: #ffffff;
   --title-size: 28px;
   --title-font: 'Playfair Display SC', serif;
   --category-font-size: 20px;
-  --filter-icon-size: 40px;
+  --filter-icon-size: 60px; /* icone più grandi */
   --price-opacity: 0.7;
 }
 
-/* ========== GENERALE ========== */
-* {
-  box-sizing: border-box;
-}
-
+/* GENERALE */
+* { box-sizing: border-box; }
 body {
   margin: 0;
   font-family: system-ui, sans-serif;
@@ -21,18 +17,13 @@ body {
   color: #1a1a1a;
 }
 
-/* ========== HEADER ========== */
+/* HEADER */
 .header {
   text-align: center;
   padding: 24px 16px;
   background: var(--bg-color);
 }
-
-.logo {
-  max-width: 120px;
-  margin-bottom: 12px;
-}
-
+.logo { max-width: 120px; margin-bottom: 12px; }
 .site-title {
   margin: 0;
   color: var(--title-color);
@@ -40,14 +31,9 @@ body {
   font-family: var(--title-font);
   letter-spacing: 2px;
 }
+.address { margin-top: 6px; font-size: 14px; color: #d0d8ff; }
 
-.address {
-  margin-top: 6px;
-  font-size: 14px;
-  color: #d0d8ff;
-}
-
-/* ========== FILTRI ========== */
+/* FILTRI */
 .filters {
   display: flex;
   gap: 10px;
@@ -55,7 +41,6 @@ body {
   background: var(--bg-color);
   overflow-x: auto;
 }
-
 .filter-btn {
   padding: 10px 14px;
   border-radius: 10px;
@@ -66,23 +51,15 @@ body {
   display: flex;
   align-items: center;
 }
-
 .filter-btn img {
   width: var(--filter-icon-size);
   height: var(--filter-icon-size);
   margin-right: 8px;
 }
+.filter-btn.active { font-weight: 600; }
 
-.filter-btn.active {
-  font-weight: 600;
-}
-
-/* ========== TRATTAMENTI ========== */
-.treatments {
-  padding: 16px;
-  background: var(--bg-color);
-}
-
+/* TRATTAMENTI */
+.treatments { padding: 16px; background: var(--bg-color); }
 .category {
   margin-bottom: 12px;
   background: rgba(255, 255, 255, 0.08);
@@ -90,6 +67,7 @@ body {
   color: white;
 }
 
+/* HEADER SEZIONE */
 .category-header {
   width: 100%;
   padding: 16px;
@@ -97,10 +75,28 @@ body {
   background: transparent;
   color: white;
   display: flex;
-  justify-content: space-between;
   align-items: center;
   font-size: var(--category-font-size);
   cursor: pointer;
+  gap: 8px; /* spazio tra titolo e prezzo */
+}
+
+/* wrap titolo + prezzo a sinistra */
+.category-header span {
+  display: inline-block;
+}
+
+/* span per prezzo con opacità vicino al titolo */
+.section-price {
+  font-size: 14px;
+  color: rgba(255, 255, 255, var(--price-opacity));
+  margin-left: 6px;
+  white-space: nowrap;
+}
+
+/* posiziona il "+" a destra */
+.category-header span:last-child {
+  margin-left: auto;
 }
 
 /* accordion */
@@ -109,35 +105,14 @@ body {
   padding: 16px;
   border-top: 1px solid rgba(255,255,255,0.2);
 }
+.category.open .category-content { display: block; }
 
-.category.open .category-content {
-  display: block;
-}
-
-.treatment {
-  margin-bottom: 16px;
-}
-
+/* TRATTAMENTI */
+.treatment { margin-bottom: 16px; }
 .treatment-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-
-.duration {
-  font-size: 13px;
-  color: #dbe2ff;
-}
-
-.description {
-  font-size: 14px;
-  color: #dbe2ff;
-  margin-top: 4px;
-}
-
-.section-price {
-  font-size: 14px;
-  color: rgba(255, 255, 255, var(--price-opacity));
-  margin-left: 8px;
-  white-space: nowrap;
-}
+.duration { font-size: 13px; color: #dbe2ff; }
+.description { font-size: 14px; color: #dbe2ff; margin-top: 4px; }
