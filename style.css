@@ -41,6 +41,7 @@ body {
   background: var(--bg-color);
   overflow-x: auto;
 }
+
 .filter-btn {
   padding: 10px 14px;
   border-radius: 10px;
@@ -48,14 +49,20 @@ body {
   background: white;
   font-size: 14px;
   cursor: pointer;
+
+  /* nuovo layout verticale */
   display: flex;
+  flex-direction: column; /* testo sopra, immagine sotto */
   align-items: center;
+  gap: 6px;
 }
+
 .filter-btn img {
   width: var(--filter-icon-size);
   height: var(--filter-icon-size);
-  margin-right: 8px;
+  margin: 0;     /* elimina margin-right */
 }
+
 .filter-btn.active { font-weight: 600; }
 
 /* TRATTAMENTI */
