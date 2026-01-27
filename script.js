@@ -8,6 +8,7 @@ fetch("treatments.json")
 
 function buildFilters(categories) {
   const filters = document.getElementById("filters");
+  filters.innerHTML = ""; // pulisce eventuali filtri già creati
 
   categories.forEach((cat, index) => {
     const btn = document.createElement("button");
@@ -16,7 +17,8 @@ function buildFilters(categories) {
     // Aggiunge l'icona se presente
     if (cat.icon) {
       const img = document.createElement("img");
-      img.src = cat.icon;  // es: "icons/unghie.svg"
+      // sostituiamo png con svg se vuoi
+      img.src = cat.icon.replace(".png", ".svg");
       img.alt = cat.name;
       img.style.width = "24px";
       img.style.height = "24px";
@@ -24,16 +26,17 @@ function buildFilters(categories) {
       btn.appendChild(img);
     }
 
+    // Calcola il prezzo minimo tra le sezioni
+    let minPrice = Math.min(...cat.sections.map(s => s.fromPrice));
+
     const span = document.createElement("span");
-    span.textContent = cat.label || cat.name;
+    span.textContent = `${cat.label || cat.name} (da ${minPrice}€)`;
     btn.appendChild(span);
 
     if (index === 0) btn.classList.add("active");
 
     btn.onclick = () => {
-      document
-        .querySelectorAll(".filter-btn")
-        .forEach(b => b.classList.remove("active"));
+      document.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
       btn.classList.add("active");
       filterCategories(cat.id);
     };
