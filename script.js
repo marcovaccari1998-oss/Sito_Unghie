@@ -5,10 +5,9 @@ fetch("treatments.json")
     buildTreatments(data.categories);
   });
 
-
 function buildFilters(categories) {
   const filters = document.getElementById("filters");
-  filters.innerHTML = ""; // pulisce eventuali filtri già creati
+  filters.innerHTML = "";
 
   categories.forEach((cat, index) => {
     const btn = document.createElement("button");
@@ -17,20 +16,13 @@ function buildFilters(categories) {
     // Aggiunge l'icona se presente
     if (cat.icon) {
       const img = document.createElement("img");
-      // sostituiamo png con svg se vuoi
-      img.src = cat.icon.replace(".png", ".svg");
+      img.src = cat.icon; // es: "icons/unghie.svg"
       img.alt = cat.name;
-      img.style.width = "24px";
-      img.style.height = "24px";
-      img.style.marginRight = "6px";
       btn.appendChild(img);
     }
 
-    // Calcola il prezzo minimo tra le sezioni
-    let minPrice = Math.min(...cat.sections.map(s => s.fromPrice));
-
     const span = document.createElement("span");
-    span.textContent = `${cat.label || cat.name} (da ${minPrice}€)`;
+    span.textContent = cat.label || cat.name;
     btn.appendChild(span);
 
     if (index === 0) btn.classList.add("active");
@@ -45,10 +37,9 @@ function buildFilters(categories) {
   });
 }
 
-
 function buildTreatments(categories) {
   const container = document.getElementById("treatments");
-  container.innerHTML = ""; // pulisce il container prima di ricrearlo
+  container.innerHTML = "";
 
   categories.forEach(cat => {
     cat.sections.forEach(section => {
@@ -56,6 +47,15 @@ function buildTreatments(categories) {
       sectionEl.className = "category";
       sectionEl.dataset.category = cat.id;
 
+      // Prezzo da tot€ (se presente nel JSON)
+      if (cat.fromPrice) {
+        const priceDiv = document.createElement("div");
+        priceDiv.className = "category-price";
+        priceDiv.textContent = `Da ${cat.fromPrice}€`;
+        sectionEl.appendChild(priceDiv);
+      }
+
+      // Header della sezione
       const header = document.createElement("button");
       header.className = "category-header";
       header.innerHTML = `<span>${section.title}</span><span>+</span>`;
@@ -87,10 +87,8 @@ function buildTreatments(categories) {
   });
 }
 
-
 function filterCategories(categoryId) {
   document.querySelectorAll(".category").forEach(cat => {
-    cat.style.display =
-      cat.dataset.category === categoryId ? "block" : "none";
+    cat.style.display = cat.dataset.category === categoryId ? "block" : "none";
   });
 }

@@ -4,87 +4,34 @@
     {
       "id": "unghie",
       "label": "Manicure e Pedicure",
-      "icon": "icons/unghie.png",
-      "note": "Usato per il filtro e per l'icona del pulsante",
+      "icon": "icons/unghia.svg",
+      "fromPrice": 20,
       "sections": [
         {
           "title": "Manicure",
           "fromPrice": 20,
           "treatments": [
-            {
-              "name": "Kombi Manicure",
-              "price": 20,
-              "duration": "30 min"
-            },
-            {
-              "name": "Manicure ad olio",
-              "price": 25,
-              "duration": "30 min"
-            }
+            { "name": "Kombi Manicure", "price": 20, "duration": "30 min" },
+            { "name": "Manicure ad olio", "price": 25, "duration": "30 min" }
           ]
         },
         {
           "title": "Semipermanente",
           "fromPrice": 34,
-          "note": "Aggiungi qui nuove varianti di semipermanente",
           "treatments": [
-            {
-              "name": "Semipermanente",
-              "price": 34,
-              "duration": "45 min"
-            },
-            {
-              "name": "Semipermanente rinforzato",
-              "price": 38,
-              "duration": "50 min"
-            },
-            {
-              "name": "Semipermanente piedi",
-              "price": 40,
-              "duration": "45 min"
-            },
-            {
-              "name": "Rimozione",
-              "price": 8,
-              "duration": "15 min"
-            }
-          ]
-        },
-        {
-          "title": "Ricostruzione Unghie",
-          "fromPrice": 65,
-          "note": "Le varianti rappresentano la lunghezza",
-          "treatments": [
-            {
-              "name": "Ricostruzione",
-              "price": 65,
-              "duration": "120 min",
-              "description": "Ricostruzione su unghie prive di prodotto precedente.",
-              "variants": [
-                { "label": "Corto (<1.5 cm)" },
-                { "label": "Medio (1.5–2 cm)" },
-                { "label": "Lungo (>2 cm)" }
-              ]
-            },
-            {
-              "name": "Refill",
-              "price": 50,
-              "duration": "90 min",
-              "variants": [
-                { "label": "Corto" },
-                { "label": "Medio (+5€)" },
-                { "label": "Lungo (+10€)" }
-              ]
-            }
+            { "name": "Semipermanente", "price": 34, "duration": "45 min" },
+            { "name": "Semipermanente rinforzato", "price": 38, "duration": "50 min" },
+            { "name": "Semipermanente piedi", "price": 40, "duration": "45 min" },
+            { "name": "Rimozione", "price": 8, "duration": "15 min" }
           ]
         }
       ]
     },
-
     {
       "id": "estetica",
       "label": "Estetica",
-      "icon": "icons/estetica.png",
+      "icon": "icons/viso.svg",
+      "fromPrice": 5,
       "sections": [
         {
           "title": "Epilazione",
