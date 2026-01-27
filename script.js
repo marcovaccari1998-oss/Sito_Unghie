@@ -1,4 +1,4 @@
-fetch("data.json")
+fetch("treatments.json")
   .then(res => res.json())
   .then(data => {
     buildFilters(data.categories);
@@ -71,3 +71,4 @@ function filterCategories(categoryId) {
       cat.dataset.category === categoryId ? "block" : "none";
   });
 }
+
