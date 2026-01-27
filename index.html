@@ -1,10 +1,8 @@
-
-
 <!DOCTYPE html>
 <html lang="it">
 <head>
   <meta charset="UTF-8">
-  <title>GG Beauty.lab</title>
+  <title>Unghiamo | Elisa Pignatti</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
 </head>
@@ -12,8 +10,13 @@
 
   <!-- HEADER -->
   <header class="header">
-    <h1>GG Beauty.lab</h1>
-    <p class="address">Via della Vittoria, 89 – Fiorano Modenese</p>
+    <img src="logo.png" alt="Logo Unghiamo" class="logo">
+
+    <h1 class="site-title">Unghiamo | Elisa Pignatti</h1>
+
+    <p class="address">
+      Via Giacomo Leopardi, 39 – 41019 Soliera (MO)
+    </p>
   </header>
 
   <!-- FILTRI -->
@@ -21,13 +24,11 @@
     <button class="filter-btn active" data-filter="all">Tutti</button>
     <button class="filter-btn" data-filter="unghie">Unghie</button>
     <button class="filter-btn" data-filter="viso">Viso</button>
-    <button class="filter-btn" data-filter="ciglia">Ciglia & Sopracciglia</button>
   </section>
 
-  <!-- LISTA TRATTAMENTI -->
+  <!-- TRATTAMENTI -->
   <section class="treatments">
 
-    <!-- CATEGORIA -->
     <div class="category" data-category="unghie">
       <button class="category-header">
         Manicure
@@ -37,41 +38,27 @@
       <div class="category-content">
 
         <div class="treatment">
-          <h4>Manicure classica – €25</h4>
-          <p class="description">
-            Pulizia delle unghie, trattamento delle cuticole e applicazione smalto.
-          </p>
+          <div class="treatment-header">
+            <h4>Manicure classica – €25</h4>
+            <span class="duration">30 min</span>
+          </div>
 
-          <ul class="variants">
-            <li>Con smalto normale</li>
-            <li>Con smalto rinforzante</li>
-          </ul>
+          <p class="description">
+            Pulizia delle unghie, trattamento delle cuticole e smalto.
+          </p>
         </div>
 
         <div class="treatment">
-          <h4>Manicure semipermanente – €35</h4>
+          <div class="treatment-header">
+            <h4>Semipermanente – €35</h4>
+            <span class="duration">45 min</span>
+          </div>
+
           <p class="description">
-            Manicure completa con applicazione di smalto semipermanente.
+            Manicure completa con applicazione semipermanente.
           </p>
         </div>
 
-      </div>
-    </div>
-
-    <!-- ALTRA CATEGORIA -->
-    <div class="category" data-category="viso">
-      <button class="category-header">
-        Trattamenti Viso
-        <span>da €50</span>
-      </button>
-
-      <div class="category-content">
-        <div class="treatment">
-          <h4>Trattamento illuminante – €50</h4>
-          <p class="description">
-            Trattamento specifico per ridare luminosità alla pelle.
-          </p>
-        </div>
       </div>
     </div>
 

@@ -1,35 +1,54 @@
+/* ========== VARIABILI DI STILE ========== */
+:root {
+  --bg-color: #1f3c88;        /* BLU SFONDO */
+  --title-color: #ffffff;    /* COLORE TITOLO */
+  --title-size: 28px;        /* DIMENSIONE TITOLO */
+  --title-font: 'Arial', sans-serif;
+}
 
+/* ========== GENERALE ========== */
 * {
   box-sizing: border-box;
-  font-family: system-ui, sans-serif;
 }
 
 body {
   margin: 0;
-  background: #f9f9f9;
+  font-family: system-ui, sans-serif;
+  background: var(--bg-color);
   color: #1a1a1a;
 }
 
+/* ========== HEADER ========== */
 .header {
   text-align: center;
   padding: 24px 16px;
+  background: var(--bg-color);
 }
 
-.header h1 {
+.logo {
+  max-width: 120px;
+  margin-bottom: 12px;
+}
+
+.site-title {
   margin: 0;
-  font-size: 28px;
+  color: var(--title-color);
+  font-size: var(--title-size);
+  font-family: var(--title-font);
 }
 
 .address {
-  color: #777;
+  margin-top: 6px;
   font-size: 14px;
+  color: #d0d8ff;
 }
 
+/* ========== FILTRI ========== */
 .filters {
   display: flex;
   gap: 10px;
   padding: 16px;
-  overflow-x: auto;
+  background: #f9f9f9;
 }
 
 .filter-btn {
@@ -37,7 +56,6 @@ body {
   border-radius: 8px;
   border: 1px solid #ddd;
   background: white;
-  cursor: pointer;
 }
 
 .filter-btn.active {
@@ -45,28 +63,29 @@ body {
   font-weight: 600;
 }
 
+/* ========== TRATTAMENTI ========== */
 .treatments {
-  padding: 0 16px 40px;
+  padding: 16px;
+  background: #f9f9f9;
 }
 
 .category {
   margin-bottom: 12px;
-  border-radius: 10px;
   background: white;
-  overflow: hidden;
+  border-radius: 10px;
 }
 
 .category-header {
   width: 100%;
   padding: 16px;
-  background: white;
   border: none;
+  background: white;
   display: flex;
   justify-content: space-between;
   font-size: 16px;
-  cursor: pointer;
 }
 
+/* accordion */
 .category-content {
   display: none;
   padding: 16px;
@@ -81,16 +100,18 @@ body {
   margin-bottom: 16px;
 }
 
-.treatment h4 {
-  margin: 0 0 6px;
+.treatment-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.duration {
+  font-size: 13px;
+  color: #666;
 }
 
 .description {
   font-size: 14px;
   color: #555;
-}
-
-.variants {
-  padding-left: 18px;
-  font-size: 14px;
 }
