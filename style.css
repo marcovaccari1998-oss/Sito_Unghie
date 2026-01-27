@@ -48,7 +48,7 @@ body {
   display: flex;
   gap: 10px;
   padding: 16px;
-  background: #f9f9f9;
+  background: var(--bg-color);
 }
 
 .filter-btn {
@@ -66,12 +66,13 @@ body {
 /* ========== TRATTAMENTI ========== */
 .treatments {
   padding: 16px;
-  background: #f9f9f9;
+  background: var(--bg-color);
 }
 
 .category {
   margin-bottom: 12px;
-  background: white;
+  background: rgba(255, 255, 255, 0.08);
+  color: white;
   border-radius: 10px;
 }
 
@@ -79,7 +80,8 @@ body {
   width: 100%;
   padding: 16px;
   border: none;
-  background: white;
+  background: transparent;
+  color: white;
   display: flex;
   justify-content: space-between;
   font-size: 16px;
@@ -89,7 +91,7 @@ body {
 .category-content {
   display: none;
   padding: 16px;
-  border-top: 1px solid #eee;
+  border-top: 1px solid rgba(255,255,255,0.2);
 }
 
 .category.open .category-content {
@@ -108,10 +110,10 @@ body {
 
 .duration {
   font-size: 13px;
-  color: #666;
+  color: #dbe2ff;
 }
 
 .description {
   font-size: 14px;
-  color: #555;
+  color: #dbe2ff;
 }

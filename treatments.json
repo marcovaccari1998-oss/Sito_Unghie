@@ -1,0 +1,86 @@
+{
+  "categories": [
+    {
+      "id": "unghie",
+      "label": "Unghie",
+      "sections": [
+        {
+          "title": "Manicure",
+          "fromPrice": 25,
+          "treatments": [
+            {
+              "name": "Manicure classica",
+              "price": 25,
+              "duration": "30 min",
+              "description": "Pulizia delle unghie, trattamento delle cuticole e smalto.",
+              "variants": [
+                {
+                  "label": "Smalto normale"
+                },
+                {
+                  "label": "Smalto rinforzante"
+                }
+              ]
+            },
+            {
+              "name": "Semipermanente",
+              "price": 35,
+              "duration": "45 min",
+              "variants": [
+                {
+                  "label": "Colore unico"
+                },
+                {
+                  "label": "French"
+                }
+              ]
+            }
+          ]
+        },
+
+        {
+          "title": "Ricostruzione Unghie",
+          "fromPrice": 60,
+          "treatments": [
+            {
+              "name": "Ricostruzione gel",
+              "price": 60,
+              "duration": "90 min",
+              "description": "Ricostruzione completa con gel.",
+              "variants": [
+                {
+                  "label": "Unghie corte"
+                },
+                {
+                  "label": "Unghie medie"
+                },
+                {
+                  "label": "Unghie lunghe"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+
+    {
+      "id": "viso",
+      "label": "Viso",
+      "sections": [
+        {
+          "title": "Trattamenti Viso",
+          "fromPrice": 50,
+          "treatments": [
+            {
+              "name": "Trattamento illuminante",
+              "price": 50,
+              "duration": "60 min",
+              "description": "Trattamento per ridare luminosità alla pelle."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
