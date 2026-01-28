@@ -3,6 +3,7 @@ fetch("treatments.json")
   .then(data => {
     buildFilters(data.categories);
     buildTreatments(data.categories);
+    filterCategories(data.categories[0].id);
   });
 
 function buildFilters(categories) {
@@ -12,30 +13,12 @@ function buildFilters(categories) {
   categories.forEach((cat, index) => {
     const btn = document.createElement("button");
     btn.className = "filter-btn";
-
-    // forza layout verticale
-    btn.style.display = "flex";
-    btn.style.flexDirection = "column";
-    btn.style.alignItems = "center";
-    btn.style.gap = "6px";
-
-    // testo filtro sopra
-    const span = document.createElement("span");
-    span.textContent = cat.label || cat.id;
-    btn.appendChild(span);
-
-    // icona filtro sotto
-    if (cat.icon) {
-      const img = document.createElement("img");
-      img.src = cat.icon;
-      img.alt = cat.label || cat.id;
-      img.style.margin = "0"; // niente margin-right
-      img.style.width = "70px";
-      img.style.height = "70px";
-      btn.appendChild(img);
-    }
-
     if (index === 0) btn.classList.add("active");
+
+    btn.innerHTML = `
+      <span>${cat.label}</span>
+      ${cat.icon ? `<img src="${cat.icon}" alt="">` : ""}
+    `;
 
     btn.onclick = () => {
       document.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
@@ -53,69 +36,48 @@ function buildTreatments(categories) {
 
   categories.forEach(cat => {
     cat.sections.forEach(section => {
-      const sectionEl = document.createElement("section");
-      sectionEl.className = "category";
-      sectionEl.dataset.category = cat.id;
+      const card = document.createElement("section");
+      card.className = "category";
+      card.dataset.category = cat.id;
 
-      // HEADER della sezione
       const header = document.createElement("button");
       header.className = "category-header";
 
-      // titolo
-      const titleSpan = document.createElement("span");
-      titleSpan.textContent = section.title;
+      header.innerHTML = `
+        <div class="left">
+          <span>${section.title}</span>
+          ${section.fromPrice ? `<span class="section-price">(da ${section.fromPrice}€)</span>` : ""}
+        </div>
+        <span class="toggle">+</span>
+      `;
 
-      // prezzo "da ...€" tra parentesi, opaco
-      const priceSpan = document.createElement("span");
-      priceSpan.className = "section-price";
-      if (section.fromPrice) priceSpan.textContent = `(da ${section.fromPrice}€)`; // parola "da" inclusa
+      header.onclick = () => card.classList.toggle("open");
 
-      // wrapper titolo + prezzo
-      const leftWrapper = document.createElement("div");
-      leftWrapper.style.display = "flex";
-      leftWrapper.style.alignItems = "center";
-      leftWrapper.style.gap = "6px";
-      leftWrapper.appendChild(titleSpan);
-      leftWrapper.appendChild(priceSpan);
-
-      // "+"
-      const plusSpan = document.createElement("span");
-      plusSpan.textContent = "+";
-
-      header.appendChild(leftWrapper);
-      header.appendChild(plusSpan);
-
-      header.onclick = () => sectionEl.classList.toggle("open");
-
-      // contenuto trattamenti
       const content = document.createElement("div");
       content.className = "category-content";
 
       section.treatments.forEach(t => {
         const div = document.createElement("div");
         div.className = "treatment";
-
         div.innerHTML = `
           <div class="treatment-header">
             <strong>${t.name}</strong>
             <span>${t.price}€</span>
           </div>
           ${t.duration ? `<div class="duration">${t.duration}</div>` : ""}
-          ${t.description ? `<div class="description">${t.description}</div>` : ""}
         `;
-
         content.appendChild(div);
       });
 
-      sectionEl.appendChild(header);
-      sectionEl.appendChild(content);
-      container.appendChild(sectionEl);
+      card.appendChild(header);
+      card.appendChild(content);
+      container.appendChild(card);
     });
   });
 }
 
-function filterCategories(categoryId) {
-  document.querySelectorAll(".category").forEach(cat => {
-    cat.style.display = cat.dataset.category === categoryId ? "block" : "none";
+function filterCategories(id) {
+  document.querySelectorAll(".category").forEach(c => {
+    c.style.display = c.dataset.category === id ? "block" : "none";
   });
 }
