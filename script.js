@@ -3,17 +3,28 @@ fetch("treatments.json")
   .then(data => {
     buildFilters(data.categories);
     buildTreatments(data.categories);
-    filterCategories(data.categories[0].id);
+    filterCategories("all");
   });
 
 function buildFilters(categories) {
   const filters = document.getElementById("filters");
   filters.innerHTML = "";
 
-  categories.forEach((cat, index) => {
+  // 🔹 FILTRO "TUTTI"
+  const allBtn = document.createElement("button");
+  allBtn.className = "filter-btn active";
+  allBtn.innerHTML = `<span>Tutti</span>`;
+  allBtn.onclick = () => {
+    document.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
+    allBtn.classList.add("active");
+    filterCategories("all");
+  };
+  filters.appendChild(allBtn);
+
+  // 🔹 FILTRI CATEGORIE
+  categories.forEach(cat => {
     const btn = document.createElement("button");
     btn.className = "filter-btn";
-    if (index === 0) btn.classList.add("active");
 
     btn.innerHTML = `
       <span>${cat.label}</span>
@@ -29,6 +40,7 @@ function buildFilters(categories) {
     filters.appendChild(btn);
   });
 }
+
 
 function buildTreatments(categories) {
   const container = document.getElementById("treatments");
@@ -69,6 +81,14 @@ function buildTreatments(categories) {
         content.appendChild(div);
       });
 
+      if (section.note) {
+        const note = document.createElement("div");
+        note.className = "section-note";
+        note.textContent = section.note;
+        content.appendChild(note);
+      }
+
+
       card.appendChild(header);
       card.appendChild(content);
       container.appendChild(card);
@@ -77,7 +97,12 @@ function buildTreatments(categories) {
 }
 
 function filterCategories(id) {
-  document.querySelectorAll(".category").forEach(c => {
-    c.style.display = c.dataset.category === id ? "block" : "none";
+  document.querySelectorAll(".category").forEach(cat => {
+    if (id === "all") {
+      cat.style.display = "block";
+    } else {
+      cat.style.display = cat.dataset.category === id ? "block" : "none";
+    }
   });
 }
+

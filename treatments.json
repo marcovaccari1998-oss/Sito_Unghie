@@ -1,5 +1,4 @@
 {
-  "note": "File dati dei trattamenti. Modifica solo i valori, NON la struttura.",
   "categories": [
     {
       "id": "unghie",
@@ -18,29 +17,106 @@
           "title": "Semipermanente",
           "fromPrice": 34,
           "treatments": [
-            { "name": "Semipermanente", "price": 34, "duration": "45 min" },
-            { "name": "Semipermanente rinforzato", "price": 38, "duration": "50 min" },
-            { "name": "Semipermanente piedi", "price": 40, "duration": "45 min" },
-            { "name": "Rimozione", "price": 8, "duration": "15 min" }
+            { "name": "Semipermanente", "price": 34 },
+            { "name": "Semipermanente rinforzato", "price": 38 },
+            { "name": "Semipermanente piedi", "price": 40 },
+            { "name": "Rimozione", "price": 8 }
+          ]
+        },
+        {
+          "title": "Copertura in gel",
+          "fromPrice": 50,
+          "treatments": [
+            { "name": "Copertura in gel", "price": 50 },
+            { "name": "Refill corto", "price": 50 },
+            { "name": "Refill medio", "price": 55 },
+            { "name": "Refill lungo", "price": 60 },
+            { "name": "Ricostruzione", "price": "da 65" },
+            { "name": "1 unghia", "price": 3 },
+            { "name": "Rimozione", "price": 10 }
+          ]
+        },
+        {
+          "title": "Muretto o stiletto",
+          "fromPrice": 90,
+          "treatments": [
+            { "name": "Muretto o stiletto", "price": "da 90" }
           ]
         }
       ]
     },
+
+    {
+      "id": "specializzati",
+      "label": "Trattamenti Specializzati",
+      "icon": "icons/ciglia.svg",
+      "sections": [
+        {
+          "title": "Laminazione ciglia",
+          "fromPrice": 45,
+          "treatments": [
+            { "name": "Laminazione ciglia 1ª seduta", "price": 60 },
+            { "name": "Laminazione ciglia refill", "price": 45 }
+          ]
+        },
+        {
+          "title": "PMU sopracciglia / labbra",
+          "fromPrice": 100,
+          "treatments": [
+            { "name": "PMU sopracciglia / labbra", "price": 200 },
+            { "name": "1° ritocco", "price": 100 },
+            { "name": "Ritocco annuale", "price": 170 }
+          ]
+        },
+        {
+          "title": "PMU eyeliner",
+          "fromPrice": 100,
+          "treatments": [
+            { "name": "PMU eyeliner", "price": 180 },
+            { "name": "1° ritocco", "price": 100 },
+            { "name": "Ritocco annuale", "price": 150 }
+          ]
+        },
+        {
+          "title": "Fine Line Tattoo",
+          "fromPrice": 50,
+          "treatments": [
+            { "name": "Fine Line tattoo", "price": "da 50" }
+          ]
+        }
+      ]
+    },
+
     {
       "id": "estetica",
       "label": "Estetica",
       "icon": "icons/viso.svg",
       "sections": [
         {
-          "title": "Epilazione",
+          "title": "Epilazione viso",
           "fromPrice": 5,
           "treatments": [
-            { "name": "Sopracciglia", "price": 5, "duration": "10 min" },
-            { "name": "Baffetti", "price": 5, "duration": "10 min" },
-            { "name": "Viso", "price": 10, "duration": "15 min" },
-            { "name": "Inguine totale", "price": 30, "duration": "30 min" },
-            { "name": "Inguine bikini", "price": 25, "duration": "25 min" },
-            { "name": "Ascelle", "price": 15, "duration": "15 min" }
+            { "name": "Epilazione sopracciglia", "price": 5 },
+            { "name": "Epilazione baffetti", "price": 5 },
+            { "name": "Epilazione viso", "price": 10 }
+          ]
+        },
+        {
+          "title": "Epilazione corpo",
+          "fromPrice": 15,
+          "treatments": [
+            { "name": "Inguine totale", "price": 30 },
+            { "name": "Inguine bikini", "price": 25 },
+            { "name": "Ascelle", "price": 15 }
+          ]
+        },
+        {
+          "title": "Massaggi",
+          "fromPrice": 45,
+          "treatments": [
+            { "name": "Massaggio relax schiena 25′", "price": 45 },
+            { "name": "Massaggio relax 50′", "price": 65 },
+            { "name": "Massaggio eminfatico gambe 35′", "price": 55 }
           ]
         }
       ]

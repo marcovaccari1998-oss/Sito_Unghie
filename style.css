@@ -163,3 +163,12 @@ body {
   font-size: 13px;
   color: var(--text-secondary);
 }
+
+.section-note {
+  margin-top: 14px;
+  font-size: 13px;
+  color: var(--text-secondary);
+  opacity: 0.85;
+  line-height: 1.4;
+}
+
