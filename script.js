@@ -63,7 +63,15 @@ function buildTreatments(categories) {
         <span class="toggle">+</span>
       `;
 
-      header.onclick = () => card.classList.toggle("open");
+      header.onclick = () => {
+        document.querySelectorAll(".category.open").forEach(openCard => {
+          if (openCard !== card) {
+            openCard.classList.remove("open");
+          }
+        });
+        card.classList.toggle("open");
+      };
+
 
       const content = document.createElement("div");
       content.className = "category-content";
@@ -98,6 +106,8 @@ function buildTreatments(categories) {
 
 function filterCategories(id) {
   document.querySelectorAll(".category").forEach(cat => {
+    cat.classList.remove("open");
+
     if (id === "all") {
       cat.style.display = "block";
     } else {
@@ -105,4 +115,3 @@ function filterCategories(id) {
     }
   });
 }
-
