@@ -6,14 +6,14 @@ fetch("treatments.json")
     filterCategories("all");
   });
 
+/* FILTRI */
 function buildFilters(categories) {
   const filters = document.getElementById("filters");
   filters.innerHTML = "";
 
-  // 🔹 FILTRO "TUTTI"
   const allBtn = document.createElement("button");
   allBtn.className = "filter-btn active";
-  allBtn.innerHTML = `<span>Tutti</span>`;
+  allBtn.innerHTML = "<span>Tutti</span>";
   allBtn.onclick = () => {
     document.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
     allBtn.classList.add("active");
@@ -21,27 +21,23 @@ function buildFilters(categories) {
   };
   filters.appendChild(allBtn);
 
-  // 🔹 FILTRI CATEGORIE
   categories.forEach(cat => {
     const btn = document.createElement("button");
     btn.className = "filter-btn";
-
     btn.innerHTML = `
       <span>${cat.label}</span>
       ${cat.icon ? `<img src="${cat.icon}" alt="">` : ""}
     `;
-
     btn.onclick = () => {
       document.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
       btn.classList.add("active");
       filterCategories(cat.id);
     };
-
     filters.appendChild(btn);
   });
 }
 
-
+/* TRATTAMENTI */
 function buildTreatments(categories) {
   const container = document.getElementById("treatments");
   container.innerHTML = "";
@@ -54,7 +50,6 @@ function buildTreatments(categories) {
 
       const header = document.createElement("button");
       header.className = "category-header";
-
       header.innerHTML = `
         <div class="left">
           <span>${section.title}</span>
@@ -64,14 +59,11 @@ function buildTreatments(categories) {
       `;
 
       header.onclick = () => {
-        document.querySelectorAll(".category.open").forEach(openCard => {
-          if (openCard !== card) {
-            openCard.classList.remove("open");
-          }
+        document.querySelectorAll(".category.open").forEach(open => {
+          if (open !== card) open.classList.remove("open");
         });
         card.classList.toggle("open");
       };
-
 
       const content = document.createElement("div");
       content.className = "category-content";
@@ -79,23 +71,29 @@ function buildTreatments(categories) {
       section.treatments.forEach(t => {
         const div = document.createElement("div");
         div.className = "treatment";
+        div.onclick = () => openTreatmentModal(t);
+
         div.innerHTML = `
           <div class="treatment-header">
             <strong>${t.name}</strong>
             <span>${t.price}€</span>
           </div>
-          ${t.duration ? `<div class="duration">${t.duration}</div>` : ""}
+          <div class="duration">${t.duration}</div>
         `;
+
         content.appendChild(div);
       });
 
-      if (section.note) {
-        const note = document.createElement("div");
-        note.className = "section-note";
-        note.textContent = section.note;
-        content.appendChild(note);
+      if (section.notes) {
+        const notesWrap = document.createElement("div");
+        notesWrap.className = "section-note";
+        Object.entries(section.notes).forEach(([key, text]) => {
+          const p = document.createElement("div");
+          p.textContent = `${key} ${text}`;
+          notesWrap.appendChild(p);
+        });
+        content.appendChild(notesWrap);
       }
-
 
       card.appendChild(header);
       card.appendChild(content);
@@ -104,10 +102,10 @@ function buildTreatments(categories) {
   });
 }
 
+/* FILTRO */
 function filterCategories(id) {
   document.querySelectorAll(".category").forEach(cat => {
     cat.classList.remove("open");
-
     if (id === "all") {
       cat.style.display = "block";
     } else {
@@ -115,3 +113,20 @@ function filterCategories(id) {
     }
   });
 }
+
+/* MODAL */
+const modal = document.getElementById("treatmentModal");
+const closeModal = document.getElementById("closeModal");
+
+function openTreatmentModal(t) {
+  document.getElementById("modalTitle").textContent = t.name;
+  document.getElementById("modalMeta").textContent = `${t.price}€ · ${t.duration}`;
+  document.getElementById("modalDescription").textContent = t.description;
+  document.getElementById("modalImage").src = t.image || "logo.png";
+  modal.classList.add("open");
+}
+
+closeModal.onclick = () => modal.classList.remove("open");
+modal.onclick = e => {
+  if (e.target === modal) modal.classList.remove("open");
+};

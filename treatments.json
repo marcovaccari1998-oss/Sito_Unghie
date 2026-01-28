@@ -26,9 +26,17 @@
         {
           "title": "Copertura in gel",
           "fromPrice": 50,
+          "notes": {
+            "*": "Su unghie prive di prodotto precedente",
+            "**": "Corto <1,5 cm · Medio 1,5–2 cm · Lungo >2 cm"
+          },
           "treatments": [
-            { "name": "Copertura in gel", "price": 50 },
-            { "name": "Refill corto", "price": 50 },
+            { "name": "Copertura in gel", "price": 50, "duration": "60 min",
+              "description": "Trattamento professionale eseguito con prodotti di alta qualità per garantire un risultato estetico duraturo.",
+              "image": "logo.png"},
+            { "name": "Refill corto", "price": 50, "duration": "60 min",
+              "description": "Trattamento professionale eseguito con prodotti di alta qualità per garantire un risultato estetico duraturo.",
+              "image": "logo.png"},
             { "name": "Refill medio", "price": 55 },
             { "name": "Refill lungo", "price": 60 },
             { "name": "Ricostruzione", "price": "da 65" },
