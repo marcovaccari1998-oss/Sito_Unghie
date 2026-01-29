@@ -14,14 +14,14 @@
               "price": 20,
               "duration": "30 min",
               "description": "Trattamento professionale eseguito con prodotti di alta qualità per garantire un risultato estetico curato e duraturo.",
-              "image": "logo.png"
+              "image": "Img_Trattamenti/Manicure_Ad_Olio/2.jpg"
             },
             {
               "name": "Manicure ad olio",
               "price": 25,
               "duration": "30 min",
               "description": "Trattamento professionale eseguito con prodotti di alta qualità per garantire un risultato estetico curato e duraturo.",
-              "image": "logo.png"
+              "image": "Img_Trattamenti/Kombi_Manicure/1.jpg"
             }
           ]
         },
