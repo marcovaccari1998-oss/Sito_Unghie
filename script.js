@@ -6,7 +6,6 @@ fetch("treatments.json")
     filterCategories("all");
   });
 
-/* FILTRI */
 function buildFilters(categories) {
   const filters = document.getElementById("filters");
   filters.innerHTML = "";
@@ -37,7 +36,6 @@ function buildFilters(categories) {
   });
 }
 
-/* TRATTAMENTI */
 function buildTreatments(categories) {
   const container = document.getElementById("treatments");
   container.innerHTML = "";
@@ -78,7 +76,6 @@ function buildTreatments(categories) {
             <strong>${t.name}</strong>
             <span>${t.price}€</span>
           </div>
-          <div class="duration">${t.duration}</div>
         `;
 
         content.appendChild(div);
@@ -102,15 +99,10 @@ function buildTreatments(categories) {
   });
 }
 
-/* FILTRO */
 function filterCategories(id) {
   document.querySelectorAll(".category").forEach(cat => {
     cat.classList.remove("open");
-    if (id === "all") {
-      cat.style.display = "block";
-    } else {
-      cat.style.display = cat.dataset.category === id ? "block" : "none";
-    }
+    cat.style.display = id === "all" || cat.dataset.category === id ? "block" : "none";
   });
 }
 
@@ -122,7 +114,7 @@ function openTreatmentModal(t) {
   document.getElementById("modalTitle").textContent = t.name;
   document.getElementById("modalMeta").textContent = `${t.price}€ · ${t.duration}`;
   document.getElementById("modalDescription").textContent = t.description;
-  document.getElementById("modalImage").src = t.image || "logo.png";
+  document.getElementById("modalImage").src = t.image;
   modal.classList.add("open");
 }
 
