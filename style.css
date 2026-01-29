@@ -174,6 +174,33 @@ body {
   justify-content: center;
   z-index: 999;
 }
+.treatment {
+  cursor: pointer;
+}
+
+.treatment-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.treatment-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.open-icon {
+  font-size: 18px;
+  opacity: 0.4;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.treatment:hover .open-icon {
+  transform: translateX(3px);
+  opacity: 0.8;
+}
+
 .modal.open {
   display: flex;
 }
@@ -214,4 +241,40 @@ body {
 #modalTitle {
   text-align: center;
   margin-bottom: 8px;
+}
+
+.whatsapp-float {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 56px;
+  height: 56px;
+  background: #25D366;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+  z-index: 1000;
+}
+
+.whatsapp-float img {
+  width: 28px;
+  height: 28px;
+}
+
+.site-footer {
+  margin: 40px 0 80px;
+  display: flex;
+  justify-content: center;
+}
+
+.site-footer img {
+  width: 24px;
+  opacity: 0.7;
+  transition: opacity 0.2s ease;
+}
+
+.site-footer img:hover {
+  opacity: 1;
 }
