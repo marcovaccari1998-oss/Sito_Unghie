@@ -73,11 +73,11 @@ function buildTreatments(categories) {
 
         div.innerHTML = `
           <div class="treatment-header">
-            <strong>${t.name}</strong>
-            <div class="treatment-right">
-              <span class="price">${t.price}€</span>
+            <strong class="treatment-name">
+              ${t.name}
               <span class="open-icon">›</span>
-            </div>
+            </strong>
+            <span class="price">${t.price}€</span>
           </div>
         `;
 
