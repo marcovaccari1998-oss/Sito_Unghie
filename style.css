@@ -28,7 +28,7 @@ body {
 }
 .site-title {
   margin-top: 4px;
-  font-family: 'Playfair Display', serif;
+  font-family: 'Playfair Display CS', serif;
   letter-spacing: 1.5px;
 }
 .address {
@@ -173,9 +173,6 @@ body {
   align-items: center;
   justify-content: center;
   z-index: 999;
-}
-.treatment {
-  cursor: pointer;
 }
 
 .treatment-header {
