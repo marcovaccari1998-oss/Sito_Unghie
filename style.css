@@ -12,7 +12,7 @@
 
 body {
   margin: 0;
-  font-family: system-ui, sans-serif;
+  font-family: 'Inter', system-ui, sans-serif;
   background: var(--bg-color);
   color: var(--text-main);
 }
@@ -23,13 +23,13 @@ body {
   text-align: center;
 }
 .logo {
-  max-width: 100px;
-  margin-bottom: 10px;
+  max-width: 80px;
+  margin-bottom: 4px;
 }
 .site-title {
-  margin: 0;
-  font-family: 'Playfair Display SC', serif;
-  letter-spacing: 2px;
+  margin-top: 4px;
+  font-family: 'Playfair Display', serif;
+  letter-spacing: 1.5px;
 }
 .address {
   font-size: 13px;
@@ -280,8 +280,19 @@ body {
 }
 
 .treatment-name {
+  font-weight: 400;
   display: inline-flex;
   align-items: center;
   gap: 6px;
 }
 
+.instagram-link img {
+  width: 34px;
+  opacity: 0.75;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.instagram-link:hover img {
+  opacity: 1;
+  transform: scale(1.05);
+}
